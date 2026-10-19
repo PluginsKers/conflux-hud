@@ -21,7 +21,7 @@ Requires Fabric Loader 0.19.5 or newer and Fabric API for the selected Minecraft
 | 1.21.11 | 21 |
 | 26.1, 26.1.1, 26.1.2, 26.2, 26.3 | 25 |
 
-Download the matching jar from the [build workflow's artifacts](https://github.com/PluginsKers/conflux-hud/actions/workflows/build.yml) and place it in your client's `mods` folder. Install only one Conflux HUD jar. Each build targets its exact Minecraft version; it does not provide cross-version server connectivity.
+Download the matching jar from [Releases](https://github.com/PluginsKers/conflux-hud/releases/latest) and place it in your client's `mods` folder. Install only one Conflux HUD jar. Each build targets its exact Minecraft version; it does not provide cross-version server connectivity.
 
 ## Server data
 
