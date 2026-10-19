@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.fabricmc.net/' }
+        mavenCentral()
+    }
+    dependencies { classpath 'net.fabricmc:fabric-loom:1.16.3' }
+}
+
+def mc = providers.gradleProperty('minecraft_version').getOrElse('26.3')
+def api = [
+    '1.21.11': '0.141.6+1.21.11',
+    '26.1': '0.145.1+26.1',
+    '26.1.1': '0.145.4+26.1.1',
+    '26.1.2': '0.155.3+26.1.2',
+    '26.2': '0.161.0+26.2',
+    '26.3': '0.161.0+26.3'
+][mc]
+if (api == null) throw new GradleException("Unsupported Minecraft version: $mc")
+def legacy = mc == '1.21.11'
+apply plugin: legacy ? 'net.fabricmc.fabric-loom-remap' : 'net.fabricmc.fabric-loom'
+
+version = "${version}+mc${mc}"
+base { archivesName = 'conflux-hud' }
+layout.buildDirectory = file("build/$mc")
+repositories { mavenCentral() }
+
+loom {
+    splitEnvironmentSourceSets()
+    mods {
+        'conflux-hud' {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+sourceSets {
+    client.java.srcDir(legacy ? 'src/mc12111/java' : 'src/mc26/java')
+    client.java.srcDir(legacy || mc.startsWith('26.1') ? 'src/gui/java' : 'src/hud/java')
+    test.compileClasspath += client.output + client.compileClasspath
+    test.runtimeClasspath += client.output + client.runtimeClasspath
+}
+
+fabricApi {
+    configureTests {
+        createSourceSet = true
+        modId = 'conflux-hud-test'
+        enableGameTests = false
+        enableClientGameTests = true
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:$mc"
+    if (legacy) mappings loom.officialMojangMappings()
+    add(legacy ? 'modImplementation' : 'implementation', 'net.fabricmc:fabric-loader:0.19.5')
+    add(legacy ? 'modImplementation' : 'implementation', "net.fabricmc.fabric-api:fabric-api:$api")
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+processResources {
+    def properties = [version: version, minecraft: mc, java: legacy ? 21 : 25, fabric: api]
+    inputs.properties(properties)
+    filesMatching('fabric.mod.json') { expand properties }
+}
+java {
+    withSourcesJar()
+    toolchain.languageVersion = JavaLanguageVersion.of(legacy ? 21 : 25)
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = legacy ? 21 : 25
+}
+test { useJUnitPlatform() }
+
+jar { from('LICENSE') { rename { 'LICENSE_conflux-hud' } } }

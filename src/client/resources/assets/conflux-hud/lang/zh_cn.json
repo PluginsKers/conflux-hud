@@ -1,0 +1,18 @@
+{
+  "conflux_hud.own": "己方",
+  "conflux_hud.neutral": "和平",
+  "conflux_hud.hostile": "敌对",
+  "conflux_hud.natural": "敌对营地",
+  "conflux_hud.under_attack": "遇袭",
+  "conflux_hud.units": "%s单位",
+  "conflux_hud.guards": "%s守卫",
+  "conflux_hud.proximity": "接近阵旗%s%%",
+  "conflux_hud.claim": "地块",
+  "conflux_hud.points": "已选%s点",
+  "conflux_hud.deed_title": "地契",
+  "conflux_hud.trade_title": "交易",
+  "conflux_hud.trade_waiting": "等待报价",
+  "conflux_hud.trade_total": "预估",
+  "conflux_hud.trade_change": "上次变动",
+  "conflux_hud.trade_prices": "买入 %s  卖出 %s  绿宝石"
+}

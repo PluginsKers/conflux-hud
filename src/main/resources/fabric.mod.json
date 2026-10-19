@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "conflux-hud",
+  "version": "${version}",
+  "name": "Conflux HUD",
+  "description": "Optional territory, land deed and trader HUD for the Eyreland Conflux server (eyreland:conflux).",
+  "authors": ["PluginsKers"],
+  "contact": {
+    "sources": "https://github.com/PluginsKers/conflux-hud",
+    "issues": "https://github.com/PluginsKers/conflux-hud/issues"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": { "client": ["com.eyreland.conflux.hud.client.ConfluxHudClient"] },
+  "mixins": ["conflux-hud.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "${minecraft}",
+    "java": ">=${java}",
+    "fabric-api": ">=${fabric}"
+  }
+}

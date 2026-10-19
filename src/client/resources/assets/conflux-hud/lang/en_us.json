@@ -1,0 +1,18 @@
+{
+  "conflux_hud.own": "Own",
+  "conflux_hud.neutral": "Peaceful",
+  "conflux_hud.hostile": "Hostile",
+  "conflux_hud.natural": "Encampment",
+  "conflux_hud.under_attack": "Under attack",
+  "conflux_hud.units": "%s units",
+  "conflux_hud.guards": "%s guards",
+  "conflux_hud.proximity": "Flag proximity %s%%",
+  "conflux_hud.claim": "Landholder",
+  "conflux_hud.points": "%s selected",
+  "conflux_hud.deed_title": "Land deed",
+  "conflux_hud.trade_title": "Shopping",
+  "conflux_hud.trade_waiting": "Waiting for quote",
+  "conflux_hud.trade_total": "Estimate",
+  "conflux_hud.trade_change": "Last change",
+  "conflux_hud.trade_prices": "Buy %s  Sell %s  emeralds"
+}
