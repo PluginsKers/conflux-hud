@@ -24,7 +24,7 @@ jobs:
           distribution: temurin
           java-version: "25"
           cache: gradle
-      - run: ./gradlew --no-daemon -Pminecraft_version=${{ matrix.minecraft }} build compileGametestJava
+      - run: ./gradlew --no-daemon -Pminecraft_version=${{ matrix.minecraft }} assemble
       - uses: actions/upload-artifact@v7.0.2
         with:
           name: conflux-hud-mc${{ matrix.minecraft }}

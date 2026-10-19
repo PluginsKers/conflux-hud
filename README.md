@@ -32,14 +32,13 @@ Shopping amounts are estimates until the server settles the session on closing t
 ## Building
 
 ```sh
-./gradlew build compileGametestJava
-./gradlew -Pminecraft_version=1.21.11 build compileGametestJava
-./gradlew -Pminecraft_version=1.21.11 runClientGameTest
+./gradlew assemble
+./gradlew -Pminecraft_version=1.21.11 assemble
 ```
 
-Use `gradlew.bat` on Windows. The default target is 26.3; `minecraft_version` accepts the versions listed above. Gradle resolves the required Java toolchain. Client game tests require a display.
+Use `gradlew.bat` on Windows. The default target is 26.3; `minecraft_version` accepts the versions listed above. Gradle resolves the required Java toolchain.
 
-Jars are written to `build/<minecraft_version>/libs/`. Install the jar without the `-sources` suffix. GitHub Actions builds and runs unit tests for every supported version on pull requests and pushes to `main`.
+Jars are written to `build/<minecraft_version>/libs/`. Install the jar without the `-sources` suffix. GitHub Actions builds every supported version on pull requests and pushes to `main`.
 
 ## License
 

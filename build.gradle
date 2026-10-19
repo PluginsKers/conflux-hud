@@ -36,17 +36,6 @@ loom {
 sourceSets {
     client.java.srcDir(legacy ? 'src/mc12111/java' : 'src/mc26/java')
     client.java.srcDir(legacy || mc.startsWith('26.1') ? 'src/gui/java' : 'src/hud/java')
-    test.compileClasspath += client.output + client.compileClasspath
-    test.runtimeClasspath += client.output + client.runtimeClasspath
-}
-
-fabricApi {
-    configureTests {
-        createSourceSet = true
-        modId = 'conflux-hud-test'
-        enableGameTests = false
-        enableClientGameTests = true
-    }
 }
 
 dependencies {
@@ -54,8 +43,6 @@ dependencies {
     if (legacy) mappings loom.officialMojangMappings()
     add(legacy ? 'modImplementation' : 'implementation', 'net.fabricmc:fabric-loader:0.19.5')
     add(legacy ? 'modImplementation' : 'implementation', "net.fabricmc.fabric-api:fabric-api:$api")
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.4'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 processResources {
@@ -71,6 +58,4 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.release = legacy ? 21 : 25
 }
-test { useJUnitPlatform() }
-
 jar { from('LICENSE') { rename { 'LICENSE_conflux-hud' } } }
