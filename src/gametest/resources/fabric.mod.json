@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "conflux-hud-test",
+  "version": "1.0.0",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-client-gametest": ["com.eyreland.conflux.hud.client.AnvilClientGameTest"]
+  },
+  "mixins": ["conflux-hud-test.mixins.json"]
+}
