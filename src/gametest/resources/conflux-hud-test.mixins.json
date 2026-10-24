@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "com.eyreland.conflux.hud.client.testmixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["AnvilLabelCaptureMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

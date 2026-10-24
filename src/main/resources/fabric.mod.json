@@ -3,7 +3,7 @@
   "id": "conflux-hud",
   "version": "${version}",
   "name": "Conflux HUD",
-  "description": "Optional territory, land deed and trader HUD for the Eyreland Conflux server (eyreland:conflux).",
+  "description": "Optional territory, land deed, trader HUD and anvil cost display for the Eyreland Conflux server (eyreland:conflux).",
   "authors": ["PluginsKers"],
   "contact": {
     "sources": "https://github.com/PluginsKers/conflux-hud",

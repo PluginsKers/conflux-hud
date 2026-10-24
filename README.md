@@ -12,6 +12,8 @@ Installation is optional for each player. Players without the mod keep Conflux's
 
 TAB and ordinary BossBars appear below the HUD. F1 hides it. Labels follow the game's English or Simplified Chinese setting; names and server messages keep their original language.
 
+When the server provides an anvil result, the anvil shows the actual level cost even at 40 levels or above. The cost stays red when the player lacks experience. Anvils without a result keep their vanilla display; server limits and experience charges still apply.
+
 ## Installation
 
 Requires Fabric Loader 0.19.5 or newer and Fabric API for the selected Minecraft version.
@@ -39,6 +41,8 @@ Shopping amounts are estimates until the server settles the session on closing t
 Use `gradlew.bat` on Windows. The default target is 26.3; `minecraft_version` accepts the versions listed above. Gradle resolves the required Java toolchain.
 
 Jars are written to `build/<minecraft_version>/libs/`. Install the jar without the `-sources` suffix. GitHub Actions builds every supported version on pull requests and pushes to `main`.
+
+Run `./gradlew -Pminecraft_version=1.21.11 runClientGameTest` to check anvil cost labels and affordability colors in English and Simplified Chinese. The same task accepts every supported Minecraft version and requires a graphical environment.
 
 ## License
 
