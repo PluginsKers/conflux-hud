@@ -40,15 +40,8 @@ final class HudPlatform {
         public void buttonSlice(int x, int y, int width, int height, int sliceTop, int sliceHeight) {
             graphics.blitSprite(RenderPipelines.GUI_TEXTURED, BUTTON, width, height, 0, sliceTop, x, y + sliceTop, width, sliceHeight);
         }
-        public void text(String text, int x, int y, int color) {
-            graphics.pose().pushMatrix();
-            try {
-                graphics.pose().translate(x, y);
-                graphics.pose().scale(HudRenderer.TEXT_SCALE);
-                graphics.text(Minecraft.getInstance().font, text, 0, 0, color);
-            } finally {
-                graphics.pose().popMatrix();
-            }
-        }
+        public void text(String text, int x, int y, int color) { graphics.text(Minecraft.getInstance().font, text, x, y, color); }
+        public void clip(int left, int top, int right, int bottom) { graphics.enableScissor(left, top, right, bottom); }
+        public void unclip() { graphics.disableScissor(); }
     }
 }
