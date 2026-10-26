@@ -2,7 +2,7 @@
 
 A compact, vanilla-style HUD for **Eyreland's Conflux server** ([`eyreland:conflux`](https://gitea.i5res.com/eyreland/conflux)). This is a companion to that server plugin; other servers and similarly named projects are unsupported.
 
-The HUD sits flush against the top center of the screen, with a vanilla button background and rounded lower corners. It shows:
+The HUD hangs from the top center of the screen as one notch, with a vanilla button background and rounded lower corners. It slides in and out and resizes smoothly as its contents change. It shows:
 
 - Own, peaceful and hostile territories, unit counts, flag proximity and attack warnings.
 - Landholders and selected land deed points.
