@@ -40,7 +40,7 @@ Shopping amounts are estimates until the server settles the session on closing t
 
 Use `gradlew.bat` on Windows. The default target is 26.3; `minecraft_version` accepts the versions listed above. Gradle resolves the required Java toolchain.
 
-Jars are written to `build/<minecraft_version>/libs/`. Install the jar without the `-sources` suffix. GitHub Actions builds every supported version on pull requests and pushes to `main`.
+Jars are written to `build/<minecraft_version>/libs/`. Install the jar without the `-sources` suffix. GitHub Actions builds every supported version on pull requests and pushes to `main`. Running the Release workflow on `main` from the Actions tab tags `v` plus the version in `gradle.properties` and publishes the jars for every supported version.
 
 Run `./gradlew -Pminecraft_version=1.21.11 runClientGameTest` to check anvil cost labels and affordability colors in English and Simplified Chinese. The same task accepts every supported Minecraft version and requires a graphical environment.
 
